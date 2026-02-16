@@ -1,9 +1,10 @@
 import Template from "../components/Auth/Template";
 import loginImg from "../assets/login.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 
 function Login({ setIsLoggedIn, isLoggedIn, setLoginpage, loginpage }) {
   const navigate = useNavigate();
@@ -52,8 +53,25 @@ function Login({ setIsLoggedIn, isLoggedIn, setLoginpage, loginpage }) {
               <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
             )}
           </span>
+
+          <NavLink to="#">
+            <p className="text-xs mt-1 text-blue-100 max-w-max ml-auto">
+              Forgot Password
+            </p>
+          </NavLink>
         </label>
         <button className="bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6">Login</button>
+
+        <div className="flex w-full items-center my-4 gap-x-2">
+          <div className="w-full h-[1px] bg-richblack-700"></div>
+          <p className="text-richblack-700 font-medium leading-[1.375rem]">OR</p>
+          <div className="w-full h-[1px] bg-richblack-700"></div>
+        </div>
+
+        <button className="w-full flex justify-center items-center rounded-[8px] font-medium text-richblack-100 border border-richblack-700 px-[12px] py-[8px] gap-x-2 mt-1">
+          <FcGoogle />
+          <p>Sign in with Google</p>
+        </button>
       </form>
     </div>
   );

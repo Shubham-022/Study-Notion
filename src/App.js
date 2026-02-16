@@ -21,6 +21,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Login" element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setLoginpage={setLoginpage} loginpage={loginpage} />} />
         <Route path="/Signup" element={<Signup setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setLoginpage={setLoginpage} loginpage={loginpage} />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );
