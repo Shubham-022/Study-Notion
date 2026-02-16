@@ -2,6 +2,7 @@ import Template from "../components/Auth/Template";
 import loginImg from "../assets/login.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function Login({ setIsLoggedIn, isLoggedIn, setLoginpage, loginpage }) {
@@ -13,6 +14,7 @@ function Login({ setIsLoggedIn, isLoggedIn, setLoginpage, loginpage }) {
     setIsLoggedIn(!isLoggedIn);
     setLoginpage("Logout")
     navigate("/Dashboard");
+    toast.success("Logged in successfully");
   }
   return (
     <div className="flex w-11/12 max-w-[1160px] py-12 mx-auto gap-x-12 gap-y-0 justify-between">

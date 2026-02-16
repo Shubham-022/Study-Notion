@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../assets/Logo.svg"
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn, loginpage, setLoginpage }) => {
 
@@ -10,6 +11,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, loginpage, setLoginpage }) => {
         setIsLoggedIn(!isLoggedIn);
         setLoginpage(loginpage === "Login" ? "Logout" : "Login")
         navigate("/");
+        toast.success("Logged out successfully");
     }
     return (
         <div className='flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto'>
