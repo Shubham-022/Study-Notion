@@ -10,7 +10,7 @@ const Template = ({ title, description1, description2, image, formType, setIsLog
                 <span className="text-blue-100 italic">{description2}</span>
             </p>
             <div className="relative w-full max-w-[450px] mt-8">
-                <img src={image} alt="image" width={558} height={490} loading="lazy" className="rounded-md" />
+                <img src={image} alt="stufy-notion" width={558} height={490} loading="lazy" className="rounded-md" />
             </div>
         </div>
     )
