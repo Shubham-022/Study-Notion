@@ -1,14 +1,17 @@
 import Template from "../components/Auth/Template";
 import loginImg from "../assets/login.png";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function Login({ setIsLoggedIn, isLoggedIn, setLoginpage, loginpage }) {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
   const loginHandler = (event) => {
     event.preventDefault();
     setIsLoggedIn(!isLoggedIn);
-    setLoginpage(loginpage === "Login" ? "Logout" : "Login")
+    setLoginpage("Logout")
     navigate("/Dashboard");
   }
   return (
@@ -27,9 +30,26 @@ function Login({ setIsLoggedIn, isLoggedIn, setLoginpage, loginpage }) {
           <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">Email Address <sup className="text-pink-200">*</sup></p>
           <input type="email" required placeholder="Enter your email" className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b-[1px] border-b-richblack-700" />
         </label>
-        <label htmlFor="password" name="password" className="w-full">
+
+        <label className="w-full relative">
           <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">Password <sup className="text-pink-200">*</sup></p>
-          <input type="password" required placeholder="Enter your password" name="password" className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b-[1px] border-b-richblack-700" />
+          <input
+            type={showPassword ? "text" : "password"}
+            required
+            placeholder="Enter your password"
+            name="password"
+            className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b-[1px] border-b-richblack-700"
+          />
+          <span
+            className="absolute right-3 top-[38px] cursor-pointer"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? (
+              <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+            ) : (
+              <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+            )}
+          </span>
         </label>
         <button className="bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6">Login</button>
       </form>

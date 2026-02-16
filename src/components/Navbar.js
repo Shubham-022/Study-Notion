@@ -8,7 +8,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, loginpage, setLoginpage }) => {
     const navigate = useNavigate();
     const logoutHandler = () => {
         setIsLoggedIn(!isLoggedIn);
-        setLoginpage(loginpage === "login" ? "logout" : "login")
+        setLoginpage(loginpage === "Login" ? "Logout" : "Login")
         navigate("/");
     }
     return (
@@ -33,14 +33,14 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, loginpage, setLoginpage }) => {
 
             <div className='flex items-center gap-x-4'>
                 <button className='bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700'>
-                    <NavLink to={`/${loginpage}`} onClick={loginpage === "login" && logoutHandler} >{loginpage}</NavLink>
+                    <NavLink to={`/${loginpage}`} onClick={()=>{if(loginpage==="Logout") logoutHandler()}} >{loginpage}</NavLink>
                     {console.log(loginpage)}
                 </button>
 
-                {!isLoggedIn &&
+                
                     <button className='bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700'>
-                        <NavLink to="/Signup">Signup</NavLink>
-                    </button>}
+                      {!isLoggedIn?  <NavLink to="/Signup">Signup</NavLink>: <NavLink to="/Dashboard">Dashboard</NavLink>}
+                    </button>
             </div>
         </div>
     )
